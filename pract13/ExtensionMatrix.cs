@@ -5,6 +5,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace pract13
 {
@@ -23,9 +24,10 @@ namespace pract13
             }
             numbers.Add(matrix);
         }
-        public static double[] Solving(this MatrixM<int> numbers)
+        public static MatrixM<double> Solving(this MatrixM<int> numbers)
         {
             double[] array = new double[numbers.RowCount];
+            
             for (int j = 0; j < numbers.ColumnCount; j++)
             {
                 double sumMid = 0;
@@ -36,7 +38,19 @@ namespace pract13
                 sumMid/=numbers.RowCount;
                 array[j] = sumMid;
             }
-            return array;
+            MatrixM<double> matrixWithSolvingValue = new MatrixM<double>(numbers.RowCount, numbers.ColumnCount);
+            for (int j = 0; j < numbers.ColumnCount; j++)
+            {
+                for(int i = 0; i < numbers.RowCount; i++)
+                {
+                    if (numbers[i,j] > array[j])
+                    {
+                        matrixWithSolvingValue[j, i] = numbers[i, j]; // не понятно, как вывести в datagrid матрицу, без нулей, чтобы цифры двигались, на одну ступень выше.
+                    }
+                }
+            }
+            
+            return matrixWithSolvingValue;
         }
     }
 }

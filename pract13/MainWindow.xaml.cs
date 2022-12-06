@@ -28,6 +28,7 @@ namespace pract13
             InitializeComponent();
         }
         MatrixM<int> matrix = new MatrixM<int>(0, 0);
+        
         private void Fill_Click(object sender, RoutedEventArgs e)
         {
             if (!int.TryParse(Row_TextBox.Text, out int rows))
@@ -51,8 +52,9 @@ namespace pract13
 
         private void Solving_Click(object sender, RoutedEventArgs e)
         {
-            ExtensionMatrix.Solving(matrix);
-
+            MatrixM<double> results = new MatrixM<double>(2,2);
+            results = ExtensionMatrix.Solving(matrix);
+            ListBox.ItemsSource = results.ToDataTable().DefaultView;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

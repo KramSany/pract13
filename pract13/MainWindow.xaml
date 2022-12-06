@@ -115,7 +115,6 @@
                     Foreground="White" Margin="103,39,371,68"/>
 
             </Grid>
-
         </GroupBox>
 
 
@@ -124,6 +123,11 @@
                   Foreground="Black"
                   RowBackground="White"
                   Margin="5,20,5,169"/>
+        <GroupBox Header="Results" Foreground="White" Margin="570,270,10,32">
+            <Grid>
+                <DataGrid Height="100" Width="200" Background="Black" Foreground="Black" x:Name="ListBox" RowBackground="White"></DataGrid>
+            </Grid>
+        </GroupBox>
 
 
     </Grid>

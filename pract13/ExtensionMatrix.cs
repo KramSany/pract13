@@ -26,7 +26,7 @@ namespace pract13
         }
         public static MatrixM<double> Solving(this MatrixM<int> numbers)
         {
-            double[] array = new double[numbers.RowCount];
+            double[] array = new double[numbers.ColumnCount];
             
             for (int j = 0; j < numbers.ColumnCount; j++)
             {
@@ -45,7 +45,7 @@ namespace pract13
                 {
                     if (numbers[i,j] > array[j])
                     {
-                        matrixWithSolvingValue[j, i] = numbers[i, j]; // не понятно, как вывести в datagrid матрицу, без нулей, чтобы цифры двигались, на одну ступень выше.
+                        matrixWithSolvingValue[i, j] = numbers[i, j]; // не понятно, как вывести в datagrid матрицу, без нулей, чтобы цифры двигались, на одну ступень выше.
                     }
                 }
             }

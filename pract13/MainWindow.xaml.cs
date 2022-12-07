@@ -52,7 +52,7 @@ namespace pract13
 
         private void Solving_Click(object sender, RoutedEventArgs e)
         {
-            MatrixM<double> results = new MatrixM<double>(2,2);
+            MatrixM<double> results = new MatrixM<double>(matrix.RowCount,matrix.ColumnCount);
             results = ExtensionMatrix.Solving(matrix);
             ListBox.ItemsSource = results.ToDataTable().DefaultView;
         }

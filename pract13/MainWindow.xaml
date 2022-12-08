@@ -5,12 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pract13"
         mc:Ignorable="d"
-        Title="MainWindow" Height="475" Width="825">
+        Title="MainWindow" Height="475" Width="830" MinWidth="830" MinHeight="475">
     <Grid Background="#151719">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="571"/>
+            <ColumnDefinition Width="254"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26"/>
+            <RowDefinition Height="245"/>
+            <RowDefinition Height="188"/>
+        </Grid.RowDefinitions>
         <Menu Background="#151719" 
               Foreground="White" 
-              Height="25"
-              VerticalAlignment="Top">
+              Height="25" Grid.Row="0"
+              VerticalAlignment="Center" Grid.ColumnSpan="2">
             <MenuItem Header="File" >
                 <MenuItem Header="Open array" 
                           Background="#1D1E33" 
@@ -37,11 +46,10 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <GroupBox Header="Settings"
-                  Height="150" 
-                  Margin="10,265,254,19" Foreground="White">
+        <GroupBox Header="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Foreground="White" Grid.Row="2" Grid.Column="0">
             <Grid>
-                <Button Content="Open"
+                <Button Content="Open" HorizontalAlignment="Center"
                 Foreground="White"
                 Background="#151719"
                 Width="200"
@@ -80,9 +88,6 @@
                 </TextBox>
                 <Label Content="Input rows"
                Foreground="White" Height="30" Margin="10,10,446,87"/>
-                <TextBox x:Name="Solving_TextBox"
-                         Background="Black"
-                         Foreground="White" Margin="134,86,338,16"/>
                 <Button Content="Add value"
                 Foreground="White"
                 Background="#151719"
@@ -118,17 +123,19 @@
         </GroupBox>
 
 
-        <DataGrid x:Name="DataGrid" AutoGenerateColumns="True" CanUserAddRows="False"
+        <DataGrid x:Name="DataGrid" AutoGenerateColumns="True" CanUserAddRows="False" Grid.Row="1" 
                   Background="Black"
                   Foreground="Black"
                   RowBackground="White"
-                  Margin="5,20,5,169"/>
-        <GroupBox Header="Results" Foreground="White" Margin="570,270,10,32">
-            <Grid>
-                <DataGrid Height="100" Width="200" Background="Black" Foreground="Black" x:Name="ListBox" RowBackground="White"></DataGrid>
-            </Grid>
-        </GroupBox>
+                  Grid.ColumnSpan="2" Margin="0,0,27,0" />
+       
+            <GroupBox  Width="200"  Header="Results" Foreground="White" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Grid>
+                    <DataGrid Height="100" Width="170" Background="Black" Foreground="Black" x:Name="ListBox" RowBackground="White"></DataGrid>
 
+                </Grid>
+            </GroupBox>
+     
 
     </Grid>
 </Window>

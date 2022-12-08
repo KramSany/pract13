@@ -33,7 +33,7 @@ namespace pract13
                 double sumMid = 0;
                 for (int i = 0; i < numbers.RowCount; i++)
                 {
-                    sumMid = sumMid + numbers[i, j];
+                    sumMid += numbers[i, j];
                 }
                 sumMid/=numbers.RowCount;
                 array[j] = sumMid;
@@ -45,11 +45,10 @@ namespace pract13
                 {
                     if (numbers[i,j] > array[j])
                     {
-                        matrixWithSolvingValue[i, j] = numbers[i, j]; // не понятно, как вывести в datagrid матрицу, без нулей, чтобы цифры двигались, на одну ступень выше.
+                        matrixWithSolvingValue[i, j] = numbers[i, j];
                     }
                 }
             }
-            
             return matrixWithSolvingValue;
         }
     }

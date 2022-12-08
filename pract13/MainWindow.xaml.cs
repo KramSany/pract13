@@ -52,9 +52,13 @@ namespace pract13
 
         private void Solving_Click(object sender, RoutedEventArgs e)
         {
-            MatrixM<double> results = new MatrixM<double>(matrix.RowCount,matrix.ColumnCount);
-            results = ExtensionMatrix.Solving(matrix);
-            ListBox.ItemsSource = results.ToDataTable().DefaultView;
+            if (Row_TextBox.Text != String.Empty && Column_TextBox.Text != String.Empty)
+            {
+                MatrixM<double> results = new MatrixM<double>(matrix.RowCount, matrix.ColumnCount);
+                results = ExtensionMatrix.Solving(matrix);
+                ListBox.ItemsSource = results.ToDataTable().DefaultView;
+            }
+            else MessageBox.Show("You are not add Row or Column. Check setting");
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

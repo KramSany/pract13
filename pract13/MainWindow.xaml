@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pract13"
         mc:Ignorable="d"
-        Title="MainWindow" Height="475" Width="830" MinWidth="830" MinHeight="475">
+        Title="Pract13" Height="475" Width="830" MinWidth="830" MinHeight="475" Icon="/-) VideoSoft FlexArray Control.bmp">
     <Grid Background="#151719">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="571"/>
@@ -48,6 +48,14 @@
         </Menu>
         <GroupBox Header="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" 
                    Foreground="White" Grid.Row="2" Grid.Column="0">
+            <GroupBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="Fill_Click" Header="Fill">
+                    </MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Click="Solving_Click" Header="Solving" ></MenuItem>
+                </ContextMenu>
+            </GroupBox.ContextMenu>
             <Grid>
                 <Button Content="Open" HorizontalAlignment="Center"
                 Foreground="White"

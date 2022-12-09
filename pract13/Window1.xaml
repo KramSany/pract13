@@ -1,0 +1,16 @@
+﻿<Window x:Class="pract13.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pract13"
+        mc:Ignorable="d"
+        Title="Menu" Height="150" Width="250" ResizeMode="NoResize"
+        FontSize="20" Activated="Window_Activated" Loaded="Window_Loaded">
+    <StackPanel>
+        
+        <Button Content="Sing in" Click="SingIn_Click"/>
+        <Button Content="Sing up" Click="SingUp_Click"/>
+        <Button Content="Exit" IsCancel="True" Click="Exit_Click"/>
+    </StackPanel>
+</Window>

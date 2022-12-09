@@ -26,7 +26,9 @@ namespace pract13
         public MainWindow()
         {
             InitializeComponent();
+            
         }
+       
         MatrixM<int> matrix = new MatrixM<int>(0, 0);
         
         private void Fill_Click(object sender, RoutedEventArgs e)
@@ -63,7 +65,7 @@ namespace pract13
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void AddRange_Click(object sender, RoutedEventArgs e)
@@ -99,6 +101,14 @@ namespace pract13
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Window1 pas = new Window1();
+            pas.Owner = this;
+            pas.ShowDialog();
 
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MatrixCool;
-
+using pract13.Auth;
 
 namespace pract13
 {
@@ -31,77 +32,40 @@ namespace pract13
        private Auth.AuthData _authData = new();
         MatrixM<int> matrix = new MatrixM<int>(0, 0);
         
-        private void Fill_Click(object sender, RoutedEventArgs e)
-        {
-            if (!int.TryParse(Row_TextBox.Text, out int rows))
-            {
-                MessageBox.Show("Введите числовое значение");
-                Row_TextBox.Clear();
-                return;
-
-            }
-            if (!int.TryParse(Column_TextBox.Text, out int column))
-            {
-                MessageBox.Show("Введите числовое значение");
-                Column_TextBox.Clear();
-                return;
-
-            }
-            ExtensionMatrix.Create(matrix, rows, column);
-            DataGrid.ItemsSource = matrix.ToDataTable().DefaultView;
-
-        }
-
+        
         private void Solving_Click(object sender, RoutedEventArgs e)
         {
-            if (Row_TextBox.Text != String.Empty && Column_TextBox.Text != String.Empty)
-            {
                 MatrixM<double> results = new MatrixM<double>(matrix.RowCount, matrix.ColumnCount);
                 results = ExtensionMatrix.Solving(matrix);
-                ListBox.ItemsSource = results.ToDataTable().DefaultView;
-            }
-            else MessageBox.Show("You are not add Row or Column. Check setting");
+                DataGridResults.ItemsSource = results.ToDataTable().DefaultView;
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void AddRange_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Clear_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-            matrix.Deserialize();
-            DataGrid.ItemsSource = matrix.ToDataTable().DefaultView;
-        }
+            try
+            {
+                StreamReader streamReader = new("config1.ini");
+                using (streamReader)
+                {
+                    int rowCount = Convert.ToInt32(streamReader.ReadLine());
+                    int columnCount = Convert.ToInt32(streamReader.ReadLine());
 
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-                matrix.Serialize();
-        }
-
-        private void Remove_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Information_Click(object sender, RoutedEventArgs e)
-        {
+                    matrix = new MatrixM<int>(rowCount, columnCount);
+                    matrix.Create(rowCount, columnCount);
+                    DataGrid.ItemsSource = matrix.ToDataTable().DefaultView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -110,6 +74,24 @@ namespace pract13
             pas.Owner = this;
             pas.ShowDialog();
 
+        }
+
+        private void SizeMatrix_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new();
+            settings.Owner = this;
+            settings.ShowDialog();
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            DataGrid.ItemsSource = null;
+            DataGridResults.ItemsSource = null;
+        }
+
+        private void Information_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Dev: Polivoda A.A");
         }
     }
 }

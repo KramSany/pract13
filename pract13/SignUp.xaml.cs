@@ -39,10 +39,13 @@ namespace pract13
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            AuthData.AddUser(Login_TB.Text, PasswordBox.ToString());
-            Close();
-
-
+            if(AuthData.AddUser(Login_TB.Text, PasswordBox.ToString())) Close();
+            else
+            {
+                Login_TB.Clear();
+                PasswordBox.Clear();
+                Login_TB.Focus();
+            }
         }
     }
 }

@@ -27,11 +27,6 @@
                           Click="Open_Click">
 
                 </MenuItem>
-                <MenuItem Header="Save array" 
-                          Background="#1D1E33" 
-                          BorderThickness="0"
-                          Click="Save_Click">
-                </MenuItem>
                 <MenuItem Header="Exit" 
                           Background="#1D1E33" 
                           BorderThickness="0"
@@ -50,82 +45,35 @@
                    Foreground="White" Grid.Row="2" Grid.Column="0">
             <GroupBox.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Click="Fill_Click" Header="Fill">
-                    </MenuItem>
-                    <Separator></Separator>
                     <MenuItem Click="Solving_Click" Header="Solving" ></MenuItem>
                 </ContextMenu>
             </GroupBox.ContextMenu>
-            <Grid>
-                <Button Content="Open" HorizontalAlignment="Center"
+            <Grid Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="77*"/>
+                    <ColumnDefinition Width="185*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Open" HorizontalAlignment="Left"
                 Foreground="White"
                 Background="#151719"
                 Width="200"
                 Height="25"
-                Click="Open_Click" Margin="312,-90,12,0"/>
+                Click="Open_Click" Margin="158,6,0,96" Grid.Column="1"/>
+                <Button x:Name="SizeMatrix" Content="Size" Height="25" Click="SizeMatrix_Click" Background="#151719" Foreground="White" Margin="104,6,278,96" Grid.ColumnSpan="2"/>
 
-                <Button Content="Save"
-                Foreground="White"
-                Background="#151719"
-                Width="200"
-                Height="25"
-                Click="Save_Click" Margin="312,46,12,56"/>
+                
                 <Button Content="Clear"
                 Foreground="White"
                 Background="#151719"
                 Height="25"
-                Width="100"
-                Click="Clear_Click" Margin="206,86,213,16"/>
-                <Button Content="Fill"
-                Foreground="White"
-                Background="#151719"
-                Width="45"
-                Height="25"
-                Click="Fill_Click" Margin="10,86,469,16"/>
+                Click="Clear_Click" Margin="160,51,0,51" Grid.Column="1"/>
+
                 <Button Content="Solving"
                 Foreground="White"
                 Background="#151719"
                 Height="25"
-                Width="45"
-                Click="Solving_Click" Margin="72,86,407,16"/>
-                <TextBox x:Name="Row_TextBox"
-                 Height="20" 
-                 Width="50" 
-                 Background="Black"
-                 Foreground="White" Margin="103,15,371,92">
-                </TextBox>
-                <Label Content="Input rows"
-               Foreground="White" Height="30" Margin="10,10,446,87"/>
-                <Button Content="Add value"
-                Foreground="White"
-                Background="#151719"
-                Width="100"
-                Height="25"
-                Click="Add_Click" Margin="205,6,220,96"/>
-                <Button Content="Add range value"
-                Foreground="White"
-                Background="#151719"
-                Width="100"
-                Height="25"
-                Click="AddRange_Click" Margin="197,44,212,58"/>
-                <Button Content="Remove value"
-                Foreground="White"
-                Background="#151719"
-                Width="100"
-                Height="25"
-                Click="Remove_Click" Margin="318,92,81,10"/>
-                <TextBox x:Name="Delite_TextBox"
-                         Background="Black"
-                         Foreground="White" 
-                         Height="25"
-                         Width="60" Margin="434,92,05,10"/>
-                <Label Content="Input columns"
-                    Foreground="White" Height="30" Margin="10,35,435,62"/>
-                <TextBox x:Name="Column_TextBox"
-                    Height="20" 
-                    Width="50" 
-                    Background="Black"
-                    Foreground="White" Margin="103,39,371,68"/>
+                Click="Solving_Click" Margin="104,51,278,51" Grid.ColumnSpan="2"/>
+
 
             </Grid>
         </GroupBox>
@@ -136,14 +84,14 @@
                   Foreground="Black"
                   RowBackground="White"
                   Grid.ColumnSpan="2" Margin="0,0,27,0" />
-       
-            <GroupBox  Width="200"  Header="Results" Foreground="White" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Top">
-                <Grid>
-                    <DataGrid Height="100" Width="170" Background="Black" Foreground="Black" x:Name="ListBox" RowBackground="White"></DataGrid>
 
-                </Grid>
-            </GroupBox>
-     
+        <GroupBox  Width="200"  Header="Results" Foreground="White" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Grid>
+                <DataGrid Height="100" Width="170" Background="Black" Foreground="Black" x:Name="DataGridResults" RowBackground="White"></DataGrid>
+
+            </Grid>
+        </GroupBox>
+
 
     </Grid>
 </Window>

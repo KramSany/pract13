@@ -29,10 +29,10 @@ namespace pract13
         private void Login_Click(object sender, RoutedEventArgs e)
         {
            if(!AuthData.Authorization(Login_TB.Text, PasswordBox.ToString()))
-            {
-                MessageBox.Show("Вы ввели неверные данные");
-                return;
-            }
+           {
+               MessageBox.Show("Вы ввели неверные данные");
+               return;
+           }
             Owner.Close();
             
         }

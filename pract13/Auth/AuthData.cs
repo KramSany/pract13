@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace pract13.Auth
 {
@@ -22,6 +23,7 @@ namespace pract13.Auth
         {
             if (_authenticationData.ContainsKey(login))
             {
+                MessageBox.Show($"Такой {login} уже есть, пожалуйста, сделайте новый логин");
                 return false;
             }
             _authenticationData.Add(login, password);
@@ -36,6 +38,7 @@ namespace pract13.Auth
             }
             if (result != password)
             {
+                MessageBox.Show($"Пароль от аккаунта {login} - неверный!");
                 return false;
             }
             return true;

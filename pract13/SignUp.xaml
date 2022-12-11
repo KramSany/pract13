@@ -11,6 +11,6 @@
         <TextBox x:Name="Login_TB" Background="White" Height="30" ></TextBox>
         <Label Content="Password" HorizontalAlignment="Center" FontSize="18"></Label>
         <PasswordBox x:Name="PasswordBox" PasswordChar="*" Height="30"></PasswordBox>
-        <Button Height="30" Content="Sing Up" FontSize="18" Click="Register_Click"></Button>
+        <Button Height="30" Content="Sign Up" FontSize="18" Click="Register_Click"></Button>
     </StackPanel>
 </Window>

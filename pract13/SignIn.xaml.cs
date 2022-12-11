@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pract13.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,17 +18,23 @@ namespace pract13
     /// <summary>
     /// Логика взаимодействия для SingIn.xaml
     /// </summary>
-    public partial class SingIn : Window
+    public partial class SignIn : Window
     {
-        public SingIn()
+        public SignIn(AuthData authData)
         {
             InitializeComponent();
+            AuthData = authData;
         }
-
+        public AuthData AuthData { get; set; }
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            Password user = new Password();
-            if ()
+           if(!AuthData.Authorization(Login_TB.Text, PasswordBox.ToString()))
+            {
+                MessageBox.Show("Вы ввели неверные данные");
+                return;
+            }
+            Owner.Close();
+            
         }
     }
 }

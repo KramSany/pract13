@@ -28,7 +28,7 @@ namespace pract13
             InitializeComponent();
             
         }
-       
+       private Auth.AuthData _authData = new();
         MatrixM<int> matrix = new MatrixM<int>(0, 0);
         
         private void Fill_Click(object sender, RoutedEventArgs e)
@@ -106,7 +106,7 @@ namespace pract13
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Window1 pas = new Window1();
+            Menu pas = new Menu();
             pas.Owner = this;
             pas.ShowDialog();
 

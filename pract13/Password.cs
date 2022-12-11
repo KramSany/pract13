@@ -14,8 +14,7 @@ namespace pract13
     {
         
         string[,] usersNameAndPass = new string[10, 2];
-        public string Pass { get; set; }
-        public string Login { get; set; }
+       
         public int Row { get; set; }
         public int Column { get; set; }
         public Password()
@@ -25,9 +24,9 @@ namespace pract13
         
         public void Add(string login, string password)
         {
-            for (int i = Row; i < usersNameAndPass.GetLength(0); i++)
+            for (int i = Row; i < usersNameAndPass.GetLength(0);)
             {
-                for (int j = Column; j < usersNameAndPass.GetLength(1); j++)
+                for (int j = Column; j < usersNameAndPass.GetLength(1);)
                 {
                     while (usersNameAndPass[i, j] == null)
                     {

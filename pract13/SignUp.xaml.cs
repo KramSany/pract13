@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pract13.Auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +18,15 @@ namespace pract13
     /// <summary>
     /// Логика взаимодействия для Window2.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class SignUp : Window
     {
-        Password user = new();
-        public Window2()
+        public SignUp(AuthData authData)
         {
             InitializeComponent();
+            AuthData = authData;
         }
-        
+        public AuthData AuthData { get; set; }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -37,8 +39,7 @@ namespace pract13
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            if (Login_TB != null || PasswordBox != null) user.Add(Login_TB.Text, PasswordBox.ToString());
-            else MessageBox.Show("You dont input login/password.\nPlease, check your data");
+            AuthData.AddUser(Login_TB.Text, PasswordBox.ToString());
             Close();
 
 

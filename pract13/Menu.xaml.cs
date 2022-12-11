@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pract13.Auth;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -18,13 +19,12 @@ namespace pract13
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Menu : Window
     {
-
-        public Window1()
+        private AuthData _authData = new();
+        public Menu()
         {
             InitializeComponent();
-
         }
         
         private void Window_Activated(object sender, EventArgs e)
@@ -35,18 +35,14 @@ namespace pract13
 
         private void SingIn_Click(object sender, RoutedEventArgs e)
         {
-            SingIn singIn = new SingIn();
+            SignIn singIn = new SignIn(_authData);
             singIn.Owner = this;
             singIn.ShowDialog();
-            
-            
-
-            
         }
 
         private void SingUp_Click(object sender, RoutedEventArgs e)
         {
-            Window2 window2 = new Window2();
+            SignUp window2 = new SignUp(_authData);
             window2.Owner = this;
             window2.ShowDialog();
 
